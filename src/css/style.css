@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins";
+}
+
+body {
+  height: 2000px;
+}
+
+.navbar {
+  color: white;
+  background: linear-gradient(-30deg, #79F0F8, #695DEF) !important;
+  padding: 0 20px 0 20px;
+  height: 65px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar .container-fluid {
+  align-items: center !important;
+}
+.navbar .nav-logo {
+  margin-right: 0.7rem;
+  font-size: 1.8rem;
+}
+.navbar .nav-user {
+  outline: 2px solid white;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.navbar .nav-user:hover {
+  color: #EF5DA8;
+  background-color: white;
+}
+.navbar .nav-user .nav-user-logo {
+  margin-top: 4px;
+  margin-right: 10px;
+}
+
+.carousel img {
+  height: 360px !important;
+}
+
+.userId {
+  outline: red 1px solid;
+  margin: 40px 50px;
+  display: flex;
+  justify-content: center;
+}
+.userId .userId-content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.userId .login-form {
+  margin-top: 20px;
+}
+.userId .login-form .login-submit {
+  float: right;
+}
+.userId .logged-user-logo {
+  margin-right: 20px;
+}
+
+.myButton {
+  outline: 2px solid white;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.myButton:hover {
+  color: #EF5DA8;
+  background-color: white;
+}/*# sourceMappingURL=style.css.map */
