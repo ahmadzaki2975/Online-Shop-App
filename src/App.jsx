@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import UserIdentity from './components/UserIdentity'
 import Card from './components/Card'
 import { nanoid } from 'nanoid'
+import { FaShoppingBasket } from "react-icons/fa";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,7 @@ function App() {
     },
     {
       id: nanoid(),
+      key: nanoid(),
       name: "Laptop",
       price: "3000$",
       location: "Jakarta, Indonesia",
@@ -26,6 +28,7 @@ function App() {
     },
     {
       id: nanoid(),
+      key: nanoid(),
       name: "Handphone",
       price: "3000$",
       location: "Jogjakarta, Indonesia",
@@ -33,6 +36,7 @@ function App() {
     },
     {
       id: nanoid(),
+      key: nanoid(),
       name: "Headset",
       price: "3000$",
       location: "Semarang, Indonesia",
@@ -42,6 +46,10 @@ function App() {
 
   function loginHandler(uname) {
     setUsername(uname);
+  }
+
+  function logoutHandler() {
+    setUsername(null);
   }
 
   return (
@@ -55,8 +63,9 @@ function App() {
         className = "userId"
         currentUser={username}
         loginHandler = {loginHandler}
+        logoutHandler = {logoutHandler}
       />
-      <h1 className='text-center'>MARKET</h1>
+      <h1 className='text-center'>MARKET <FaShoppingBasket/></h1>
       <div className='card-container'>
         {items.map(item => {
           return(

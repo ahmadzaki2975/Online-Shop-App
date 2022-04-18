@@ -1,7 +1,10 @@
+import { nanoid } from "nanoid";
 import { useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
-import { FaShoppingBasket } from "react-icons/fa";
+import { FaTag } from "react-icons/fa";
 import Card from "./Card";
+import YourCard from "./YourCard";
+import NewListModal from "./NewListModal";
 
 function UserIdentity(props) {
   const [uname, setUname] = useState("");
@@ -15,24 +18,52 @@ function UserIdentity(props) {
           <left>
             <h2>
               <FaUserAlt className="logged-user-logo" />
-              Welcome, {props.currentUser} !
+              Welcome, <span style={{fontWeight:"bold"}}>{props.currentUser}</span>!
             </h2>
-            <button type="button" className="btn btn-success">
-              Add new listing
+            <button
+              type="button"
+              className="btn btn-danger me-2"
+              onClick={() => {
+                props.logoutHandler();
+                setUname("");
+                console.log(props.currentUser);
+              }}
+            >
+              Log Out
             </button>
-            <h2>Your Items</h2>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#NewListModal"
+            >
+              Add New Listing
+            </button>
+            <h3 className="my-3">Your Items <FaTag /></h3>
             <div className="card-container">
-              
+              <YourCard
+                key={nanoid()}
+                name="Item 1"
+                price="900$"
+                location="Salatiga, Jawa Tengah"
+                image="2.jpg"
+              />
             </div>
+            <NewListModal />
           </left>
         </div>
       );
     } else {
       return (
         <div className="unlogged-content">
-          <left className="unlogged-left">
-            <h2>Log in and start shopping! <FaShoppingBasket style={{fontSize:"3rem"}}/></h2>
-            <h4 style={{marginBottom:"2rem", marginTop:"1rem"}}>Over dramatic promotion words here</h4>
+          <div className="left unlogged-left">
+            <h2>
+              Log in and start shopping!{" "}
+              {/* <FaShoppingBasket style={{ fontSize: "3rem" }} /> */}
+            </h2>
+            <h4 style={{ marginBottom: "0.75rem", marginTop: "0.5rem" }}>
+              Over dramatic promotion words here
+            </h4>
             <form className="login-form">
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">
@@ -66,10 +97,10 @@ function UserIdentity(props) {
                 Log In
               </button>
             </form>
-          </left>
-          <right>
-            <h1>ADS</h1>
-          </right>
+          </div>
+          <div className="right">
+            <h1>ADS Placeholder</h1>
+          </div>
         </div>
       );
     }

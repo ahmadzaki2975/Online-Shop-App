@@ -45,6 +45,9 @@ body {
   margin-right: 10px;
 }
 
+.carousel .carousel-item {
+  transition: transform 2s ease, opacity 0.5s ease-out;
+}
 .carousel img {
   height: 360px !important;
 }
@@ -60,21 +63,21 @@ body {
   display: flex;
   justify-content: space-between !important;
 }
-.unlogged-content left {
+.unlogged-content .left {
   width: 50%;
   padding: 20px;
 }
-.unlogged-content left img {
+.unlogged-content .left img {
   margin-top: 20px;
   width: 300px;
 }
-.unlogged-content left .login-form {
+.unlogged-content .left .login-form {
   margin-top: 20px;
 }
-.unlogged-content left .login-form .login-submit {
+.unlogged-content .left .login-form .login-submit {
   float: right;
 }
-.unlogged-content right {
+.unlogged-content .right {
   height: 300px;
   width: 50%;
   background: linear-gradient(60deg, #F99292, #EF5DA8);
@@ -86,8 +89,8 @@ body {
 }
 
 .logged-content {
-  outline: blue 1px solid;
-  height: 340px;
+  outline: blue 1px dashed;
+  min-height: 340px;
   width: 100%;
   padding: 20px;
 }
@@ -120,12 +123,22 @@ body {
   outline: red 1px solid;
   padding: 20px;
   display: grid;
+  place-items: center;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 10px;
   -moz-column-gap: 10px;
        column-gap: 10px;
 }
 
+.card {
+  border: 2px solid grey;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 2px 3px rgba(0, 0, 0, 0.5);
+}
+.card .btn {
+  float: right;
+}
 .card img {
   min-height: 150px;
   max-height: 150px;
