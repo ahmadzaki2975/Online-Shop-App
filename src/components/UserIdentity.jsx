@@ -90,7 +90,8 @@ function UserIdentity(props) {
                   } else if (uname.length >= 16) {
                     setErrorMessages("Username is too long (max is 16 chars)");
                   } else {
-                    props.loginHandler(uname);
+                    props.loginHandler(uname)
+                    setErrorMessages('')
                   }
                 }}
               >
