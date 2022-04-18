@@ -34,7 +34,7 @@ body {
     justify-content: center;
     height: fit-content;
     &:hover {
-      color: #EF5DA8;
+      color: #79F0F8;
       background-color: white;
     }
     .nav-user-logo {
@@ -51,25 +51,52 @@ body {
 }
 
 .userId {
-  outline: red 1px solid;
+  // outline: red 1px solid;
   margin: 40px 50px;
   display: flex;
-  justify-content: center;
-  .userId-content {
-    display: flex;
-    justify-content: center;
-    text-align: center;
+  justify-content: flex-start;
   }
-  .login-form {
-    margin-top: 20px;
-    .login-submit {
-      float: right;
+  .unlogged-content {
+    // background-color: blue;
+    width: 100%;
+    display: flex;
+    justify-content: space-between !important;
+    left {
+      width: 50%;
+      padding: 20px;
+      img {
+        margin-top: 20px;
+        width: 300px;
+      }
+      .login-form {
+        margin-top: 20px;
+        .login-submit {
+          float: right;
+        }
+      }
+    }
+    right {
+      height: 300px;
+      width: 50%;
+      background: $headerColor;
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
     }
   }
-  .logged-user-logo {
-    margin-right: 20px;
+
+  .logged-content {
+    // justify-content: flex-;
+    outline: blue 1px solid;
+    height: 340px;
+    width: 100%;
+    padding: 20px;
+    .logged-user-logo {
+      margin-right: 20px;
+    }
   }
-}
 
 .myButton {
   outline: 2px solid white;
@@ -79,8 +106,31 @@ body {
   justify-content: center;
   height: fit-content;
   &:hover {
-    color: #EF5DA8;
+    color:#79F0F8;
     background-color: white;
   }
 }
 
+.errorMsg {
+  margin-top: 10px;
+  height: 20px;
+  color: red;
+}
+
+.card-container {
+  outline: red 1px solid;
+  padding: 20px;
+  display: grid;
+  // justify-content: center;
+  // align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+.card {
+  img {
+    min-height: 150px;
+    max-height: 150px;
+  }
+}

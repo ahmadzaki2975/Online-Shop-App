@@ -37,7 +37,7 @@ body {
   height: fit-content;
 }
 .navbar .nav-user:hover {
-  color: #EF5DA8;
+  color: #79F0F8;
   background-color: white;
 }
 .navbar .nav-user .nav-user-logo {
@@ -50,23 +50,48 @@ body {
 }
 
 .userId {
-  outline: red 1px solid;
   margin: 40px 50px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
-.userId .userId-content {
+
+.unlogged-content {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  text-align: center;
+  justify-content: space-between !important;
 }
-.userId .login-form {
+.unlogged-content left {
+  width: 50%;
+  padding: 20px;
+}
+.unlogged-content left img {
+  margin-top: 20px;
+  width: 300px;
+}
+.unlogged-content left .login-form {
   margin-top: 20px;
 }
-.userId .login-form .login-submit {
+.unlogged-content left .login-form .login-submit {
   float: right;
 }
-.userId .logged-user-logo {
+.unlogged-content right {
+  height: 300px;
+  width: 50%;
+  background: linear-gradient(60deg, #F99292, #EF5DA8);
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.logged-content {
+  outline: blue 1px solid;
+  height: 340px;
+  width: 100%;
+  padding: 20px;
+}
+.logged-content .logged-user-logo {
   margin-right: 20px;
 }
 
@@ -81,6 +106,27 @@ body {
   height: fit-content;
 }
 .myButton:hover {
-  color: #EF5DA8;
+  color: #79F0F8;
   background-color: white;
+}
+
+.errorMsg {
+  margin-top: 10px;
+  height: 20px;
+  color: red;
+}
+
+.card-container {
+  outline: red 1px solid;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+
+.card img {
+  min-height: 150px;
+  max-height: 150px;
 }/*# sourceMappingURL=style.css.map */
