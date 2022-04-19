@@ -1,5 +1,7 @@
 # OnlineShopApp
 
+Project for CRUD-based website using React.js and Firebase
+
 ## Early Design
 [Figma](https://www.figma.com/file/Ru7BVma2ppLm6C4Ww9t30V/Post-Test-Zaki?node-id=2%3A64)
 
