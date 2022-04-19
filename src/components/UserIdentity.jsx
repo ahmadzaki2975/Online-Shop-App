@@ -15,7 +15,7 @@ function UserIdentity(props) {
     if (props.currentUser != null) {
       return (
         <div className="logged-content">
-          <left>
+          <div className="left">
             <h2>
               <FaUserAlt className="logged-user-logo" />
               Welcome, <span style={{fontWeight:"bold"}}>{props.currentUser}</span>!
@@ -33,7 +33,7 @@ function UserIdentity(props) {
             </button>
             <button
               type="button"
-              class="btn btn-primary"
+              className="btn btn-primary"
               data-bs-toggle="modal"
               data-bs-target="#NewListModal"
             >
@@ -49,8 +49,11 @@ function UserIdentity(props) {
                 image="2.jpg"
               />
             </div>
-            <NewListModal />
-          </left>
+            <NewListModal 
+              addListingHandler={props.addListingHandler}
+              username={uname}
+            />
+          </div>
         </div>
       );
     } else {

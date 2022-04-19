@@ -11,7 +11,7 @@ body {
 
 .navbar {
   color: white;
-  background: linear-gradient(-30deg, #79F0F8, #695DEF) !important;
+  background: linear-gradient(-30deg, #49ebf5, #695DEF) !important;
   padding: 0 20px 0 20px;
   height: 65px;
   position: -webkit-sticky;
@@ -89,7 +89,6 @@ body {
 }
 
 .logged-content {
-  outline: blue 1px dashed;
   min-height: 340px;
   width: 100%;
   padding: 20px;
@@ -120,7 +119,6 @@ body {
 }
 
 .card-container {
-  outline: red 1px solid;
   padding: 20px;
   display: grid;
   place-items: center;

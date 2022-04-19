@@ -10,9 +10,12 @@ function Card(props) {
         <h5 className="card-title">{props.name}</h5>
         <p className="card-text">{props.price}</p>
         <p>{props.location}</p>
-        <p>Seller : {props.seller}</p>
-        <a href="#" className="btn btn-success">
+        {/* <p>Seller : {props.seller}</p> */}
+        <a href="#" className="btn btn-success ms-2">
           Order
+        </a>
+        <a href="#" className="btn btn-primary">
+          Details
         </a>
       </div>
     </div>
