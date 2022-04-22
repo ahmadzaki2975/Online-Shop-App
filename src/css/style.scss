@@ -1,10 +1,10 @@
-@import 'variables';
+@import "variables";
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
 body {
@@ -19,13 +19,13 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  .container-fluid{
+  .container-fluid {
     align-items: center !important;
   }
-  .nav-logo{
+  .nav-logo {
     margin-right: 0.7rem;
     font-size: 1.8rem;
-  } 
+  }
   .nav-user {
     outline: 2px solid white;
     padding: 5px;
@@ -34,7 +34,7 @@ body {
     justify-content: center;
     height: fit-content;
     &:hover {
-      color: #79F0F8;
+      color: #79f0f8;
       background-color: white;
     }
     .nav-user-logo {
@@ -46,7 +46,7 @@ body {
 
 .carousel {
   .carousel-item {
-    transition: transform 2s ease, opacity .5s ease-out;
+    transition: transform 2s ease, opacity 0.5s ease-out;
   }
   img {
     height: 360px !important;
@@ -58,48 +58,47 @@ body {
   margin: 40px 50px;
   display: flex;
   justify-content: flex-start;
-  }
-  .unlogged-content {
-    // background-color: blue;
-    width: 100%;
-    display: flex;
-    justify-content: space-between !important;
-    .left {
-      width: 50%;
-      padding: 20px;
-      img {
-        margin-top: 20px;
-        width: 300px;
-      }
-      .login-form {
-        margin-top: 20px;
-        .login-submit {
-          float: right;
-        }
-      }
-    }
-    .right {
-      height: 300px;
-      width: 50%;
-      background: $headerColor;
-      margin: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-    }
-  }
-
-  .logged-content {
-    // justify-content: flex-;
-    // outline: blue 1px dashed;
-    min-height: 340px;
-    width: 100%;
+}
+.unlogged-content {
+  // background-color: blue;
+  width: 100%;
+  display: flex;
+  justify-content: space-between !important;
+  .left {
+    width: 50%;
     padding: 20px;
-    .logged-user-logo {
-      margin-right: 20px;
+    img {
+      margin-top: 20px;
+      width: fit-content;
+    }
+    .login-form {
+      margin-top: 20px;
+      .login-submit {
+        float: right;
+      }
     }
   }
+  .right {
+    height: 300px;
+    width: 50%;
+    background: $headerColor;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+}
+
+.logged-content {
+  height: fit-content;
+  min-height: 340px;
+  width: 100%;
+  padding: 20px;
+  .logged-user-logo {
+    margin-right: 20px;
+  }
+}
 
 .myButton {
   outline: 2px solid white;
@@ -109,7 +108,7 @@ body {
   justify-content: center;
   height: fit-content;
   &:hover {
-    color:#79F0F8;
+    color: #79f0f8;
     background-color: white;
   }
 }
@@ -118,6 +117,12 @@ body {
   margin-top: 10px;
   height: 20px;
   color: red;
+}
+
+.dashed-line {
+  width: 100%;
+  margin: 10px 20px;
+  border: 2px black dashed;
 }
 
 .card-container {
@@ -134,12 +139,51 @@ body {
   border: 2px solid grey;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 2px 3px rgba(0,0,0,0.5);
+  box-shadow: 2px 3px rgba(0, 0, 0, 0.5);
+  height: 350px;
+  width: 250px;
+  p {
+    margin-bottom: 5px;
+  }
   .btn {
-    float:right;
+    float: right;
   }
   img {
-    min-height: 150px;
-    max-height: 150px;
+    height: 150px;
+  }
+}
+
+.your-card-container {
+  // width: fit-content;
+  height: fit-content;
+  white-space: nowrap;
+  position: relative;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  .YourCard {
+    // transform: scale(0.8) !important;
+    float: none;
+    margin: 0;
+    display: inline-flex;
+    margin: 10px 15px;
+    zoom: 1;
+  }
+}
+
+.accordion-item {
+  border: none !important;
+  padding: 0 !important;
+  margin-top: 20px;
+  h2 {
+    h2 {
+      padding-left: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

@@ -1,8 +1,9 @@
 import { useState } from "react";
+import {nanoid} from "nanoid";
 
 function NewListModal(props) {
   const [name, setName] = useState("name");
-  const [price, setPrice] = useState(10);
+  const [price, setPrice] = useState(100000);
   const [stock, setStock] = useState(1);
   const [location, setLocation] = useState("location, somewhere");
 
@@ -29,7 +30,7 @@ function NewListModal(props) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
-                <div className="form-text">Do not use inappropriate names</div>
+                <div className="form-text">Please use accurate names</div>
               </div>
               <div className="mb-3">
                 <label htmlFor="exampleInputPassword1" className="form-label">
@@ -78,8 +79,12 @@ function NewListModal(props) {
               <button
                 type="submit"
                 className="btn btn-primary"
+                data-bs-dismiss="modal"
                 onClick={() => {
+                  const itemId = nanoid();
                   let newItems = {
+                    id: itemId,
+                    key: itemId,
                     name : name,
                     price: price,
                     stock: stock,

@@ -9,8 +9,9 @@ function Card(props) {
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>
         <p className="card-text">{props.price}</p>
+        <p>Stock : {props.stock}</p>
+        <p>Seller : {props.seller}</p>
         <p>{props.location}</p>
-        {/* <p>Seller : {props.seller}</p> */}
         <a href="#" className="btn btn-success ms-2">
           Order
         </a>

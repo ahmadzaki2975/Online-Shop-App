@@ -2,7 +2,6 @@ import { nanoid } from "nanoid";
 import { useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { FaTag } from "react-icons/fa";
-import Card from "./Card";
 import YourCard from "./YourCard";
 import NewListModal from "./NewListModal";
 
@@ -11,6 +10,21 @@ function UserIdentity(props) {
   const [formInput, setFormInput] = useState("");
   const [errorMessages, setErrorMessages] = useState("");
 
+  const itemsFromDB = props.itemsFromDB;
+
+  const itemValues = Object.values(itemsFromDB);
+
+  const yourItems = itemValues.filter((item) => {
+    return item.seller == uname;
+  });
+
+  function HaveItem() {
+    if (yourItems.length == 0) {
+      console.log("Not empty");
+      return <h5 style={{ color: "red" }}>You haven't listed any items yet</h5>;
+    }
+  }
+
   function DetermineLogin() {
     if (props.currentUser != null) {
       return (
@@ -18,7 +32,8 @@ function UserIdentity(props) {
           <div className="left">
             <h2>
               <FaUserAlt className="logged-user-logo" />
-              Welcome, <span style={{fontWeight:"bold"}}>{props.currentUser}</span>!
+              Welcome,{" "}
+              <span style={{ fontWeight: "bold" }}>{props.currentUser}</span>!
             </h2>
             <button
               type="button"
@@ -26,7 +41,7 @@ function UserIdentity(props) {
               onClick={() => {
                 props.logoutHandler();
                 setUname("");
-                console.log(props.currentUser);
+                // console.log(props.currentUser);
               }}
             >
               Log Out
@@ -39,17 +54,52 @@ function UserIdentity(props) {
             >
               Add New Listing
             </button>
-            <h3 className="my-3">Your Items <FaTag /></h3>
-            <div className="card-container">
-              <YourCard
-                key={nanoid()}
-                name="Item 1"
-                price="900$"
-                location="Salatiga, Jawa Tengah"
-                image="2.jpg"
-              />
+
+            <div className="accordion" id="accordionExample">
+              <div className="accordion-item">
+                <h2 className="accordion-header" id="headingOne">
+                  <button
+                    className="accordion-button m-0 p-0"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    <h2 className="my-3">
+                      Your Items <FaTag />
+                    </h2>
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  className="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div className="accordion-body">
+                    <div className="your-card-container">
+                      {yourItems.map((item) => {
+                        return (
+                          <YourCard
+                            // className="YourCard"
+                            name={item.name}
+                            id={item.id}
+                            key={item.id}
+                            price={item.price}
+                            location={item.location}
+                            seller={item.seller}
+                            image="2.jpg"
+                          />
+                        );
+                      })}
+                      <HaveItem />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <NewListModal 
+            <NewListModal
               addListingHandler={props.addListingHandler}
               username={uname}
             />
@@ -60,10 +110,7 @@ function UserIdentity(props) {
       return (
         <div className="unlogged-content">
           <div className="left unlogged-left">
-            <h2>
-              Log in and start shopping!{" "}
-              {/* <FaShoppingBasket style={{ fontSize: "3rem" }} /> */}
-            </h2>
+            <h2>Log in and start shopping! </h2>
             <h4 style={{ marginBottom: "0.75rem", marginTop: "0.5rem" }}>
               Over dramatic promotion words here
             </h4>
@@ -87,14 +134,17 @@ function UserIdentity(props) {
                 type="submit"
                 className="btn btn-primary login-submit"
                 onClick={() => {
-                  console.log(uname);
+                  // console.log(uname);
                   if (uname == "") {
                     setErrorMessages("Username can't be empty");
-                  } else if (uname.length >= 16) {
-                    setErrorMessages("Username is too long (max is 16 chars)");
+                  } else if (uname.length >= 16 || uname.length < 4) {
+                    setErrorMessages(
+                      "Username must be between 4 - 16 characters"
+                    );
                   } else {
-                    props.loginHandler(uname)
-                    setErrorMessages('')
+                    props.loginHandler(uname);
+                    setErrorMessages("");
+                    console.log(yourItems);
                   }
                 }}
               >

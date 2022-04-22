@@ -37,7 +37,7 @@ body {
   height: fit-content;
 }
 .navbar .nav-user:hover {
-  color: #79F0F8;
+  color: #79f0f8;
   background-color: white;
 }
 .navbar .nav-user .nav-user-logo {
@@ -69,7 +69,9 @@ body {
 }
 .unlogged-content .left img {
   margin-top: 20px;
-  width: 300px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .unlogged-content .left .login-form {
   margin-top: 20px;
@@ -89,6 +91,9 @@ body {
 }
 
 .logged-content {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   min-height: 340px;
   width: 100%;
   padding: 20px;
@@ -108,7 +113,7 @@ body {
   height: fit-content;
 }
 .myButton:hover {
-  color: #79F0F8;
+  color: #79f0f8;
   background-color: white;
 }
 
@@ -116,6 +121,12 @@ body {
   margin-top: 10px;
   height: 20px;
   color: red;
+}
+
+.dashed-line {
+  width: 100%;
+  margin: 10px 20px;
+  border: 2px black dashed;
 }
 
 .card-container {
@@ -133,11 +144,48 @@ body {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 2px 3px rgba(0, 0, 0, 0.5);
+  height: 350px;
+  width: 250px;
+}
+.card p {
+  margin-bottom: 5px;
 }
 .card .btn {
   float: right;
 }
 .card img {
-  min-height: 150px;
-  max-height: 150px;
+  height: 150px;
+}
+
+.your-card-container {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  white-space: nowrap;
+  position: relative;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.your-card-container .YourCard {
+  float: none;
+  margin: 0;
+  display: inline-flex;
+  margin: 10px 15px;
+  zoom: 1;
+}
+
+.accordion-item {
+  border: none !important;
+  padding: 0 !important;
+  margin-top: 20px;
+}
+.accordion-item h2 h2 {
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }/*# sourceMappingURL=style.css.map */
