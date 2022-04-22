@@ -89,6 +89,7 @@ function UserIdentity(props) {
                             price={item.price}
                             location={item.location}
                             seller={item.seller}
+                            stock={item.stock}
                             image="2.jpg"
                           />
                         );

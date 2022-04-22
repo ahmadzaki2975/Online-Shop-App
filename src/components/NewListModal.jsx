@@ -2,10 +2,10 @@ import { useState } from "react";
 import {nanoid} from "nanoid";
 
 function NewListModal(props) {
-  const [name, setName] = useState("name");
+  const [name, setName] = useState("");
   const [price, setPrice] = useState(100000);
   const [stock, setStock] = useState(1);
-  const [location, setLocation] = useState("location, somewhere");
+  const [location, setLocation] = useState("");
 
   return (
     <div className="modal" tabIndex={-1} id="NewListModal">
@@ -25,6 +25,7 @@ function NewListModal(props) {
               <div className="mb-1">
                 <label className="form-label">Item Name</label>
                 <input
+                  placeholder="Insert item name here"
                   type="text"
                   className="form-control"
                   value={name}
@@ -60,6 +61,7 @@ function NewListModal(props) {
                 </label>
                 <input
                   // type="text"
+                  placeholder="City, Province"
                   className="form-control"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}

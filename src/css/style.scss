@@ -121,17 +121,17 @@ body {
 
 .dashed-line {
   width: 100%;
-  margin: 10px 20px;
+  // padding: 20px;
   border: 2px black dashed;
 }
 
 .card-container {
   // outline: red 1px solid;
-  padding: 20px;
+  padding: 10px 40px;
   display: grid;
-  place-items: center;
+  justify-content: center;
   grid-template-columns: repeat(4, 1fr);
-  row-gap: 10px;
+  row-gap: 20px;
   column-gap: 10px;
 }
 
@@ -146,6 +146,7 @@ body {
     margin-bottom: 5px;
   }
   .btn {
+    margin-top: 10px;
     float: right;
   }
   img {

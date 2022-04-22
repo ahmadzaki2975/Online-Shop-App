@@ -66,7 +66,7 @@ function App() {
         //* for YourCard
         itemsFromDB={itemsFromDB}
       />
-      <div className="dashed-line"></div>
+      {/* <div className="dashed-line"></div> */}
       <h1 className="text-center">
         MARKET <FaShoppingBasket />
       </h1>
