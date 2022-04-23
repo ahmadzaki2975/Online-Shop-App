@@ -5,14 +5,20 @@ import UserIdentity from "./components/UserIdentity";
 import Market from "./components/Market";
 import { FaShoppingBasket } from "react-icons/fa";
 import { db } from "./firebase";
-import { collection, addDoc, query, where, onSnapshot  } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  query,
+  where,
+  onSnapshot,
+} from "firebase/firestore";
 
 function App() {
   const [count, setCount] = useState(0);
   const [username, setUsername] = useState(null);
 
   // const [items, setItems] = useState([]);
-  
+
   let [itemsFromDB, setItemsDB] = useState([]);
 
   useEffect(() => {
@@ -62,15 +68,17 @@ function App() {
         loginHandler={loginHandler}
         logoutHandler={logoutHandler}
         addListingHandler={addListingHandler}
-
         //* for YourCard
         itemsFromDB={itemsFromDB}
+        
       />
-      {/* <div className="dashed-line"></div> */}
-      <h1 className="text-center">
+      <div id="market" style={{position:"relative", top:"-40px"}}></div>
+      <div className="dashed-line" ></div>
+      <h1 className="text-center" >
         MARKET <FaShoppingBasket />
       </h1>
-      <Market 
+      <Market
+        
         itemsFromDB={itemsFromDB}
         username={username}
         notYourItems={notYourItems}

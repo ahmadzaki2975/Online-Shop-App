@@ -11,6 +11,11 @@ body {
   height: 2000px;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 .navbar {
   color: white;
   background: $headerColor2 !important;
@@ -41,6 +46,14 @@ body {
       margin-top: 4px;
       margin-right: 10px;
     }
+  }
+}
+
+.market-link {
+  // transition: 0.5s ease;
+  &:hover {
+    color: white;
+    font-weight: bold;
   }
 }
 
@@ -119,10 +132,17 @@ body {
   color: red;
 }
 
-.dashed-line {
+.solid-line {
   width: 100%;
-  // padding: 20px;
-  border: 2px black dashed;
+  margin-bottom: 20px;
+  border: 1px black solid;
+}
+
+.dashed-line {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border: 1px black dashed;
 }
 
 .card-container {
@@ -173,13 +193,20 @@ body {
 }
 
 .accordion-item {
-  border: none !important;
+  // border: none !important;
   padding: 0 !important;
   margin-top: 20px;
   h2 {
     h2 {
       padding-left: 20px;
     }
+  }
+}
+
+.accordion-button{
+  // outline: red 1px solid;
+  &::after {
+    margin-right: 20px;
   }
 }
 

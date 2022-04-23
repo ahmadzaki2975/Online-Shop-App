@@ -1,4 +1,3 @@
-import { nanoid } from "nanoid";
 import { useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { FaTag } from "react-icons/fa";
@@ -28,7 +27,7 @@ function UserIdentity(props) {
   function DetermineLogin() {
     if (props.currentUser != null) {
       return (
-        <div className="logged-content">
+        <div className="logged-content" id="yourItems">
           <div className="left">
             <h2>
               <FaUserAlt className="logged-user-logo" />

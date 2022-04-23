@@ -9,6 +9,11 @@ body {
   height: 2000px;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 .navbar {
   color: white;
   background: linear-gradient(-30deg, #49ebf5, #695DEF) !important;
@@ -43,6 +48,11 @@ body {
 .navbar .nav-user .nav-user-logo {
   margin-top: 4px;
   margin-right: 10px;
+}
+
+.market-link:hover {
+  color: white;
+  font-weight: bold;
 }
 
 .carousel .carousel-item {
@@ -123,9 +133,17 @@ body {
   color: red;
 }
 
-.dashed-line {
+.solid-line {
   width: 100%;
-  border: 2px black dashed;
+  margin-bottom: 20px;
+  border: 1px black solid;
+}
+
+.dashed-line {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border: 1px black dashed;
 }
 
 .card-container {
@@ -176,12 +194,15 @@ body {
 }
 
 .accordion-item {
-  border: none !important;
   padding: 0 !important;
   margin-top: 20px;
 }
 .accordion-item h2 h2 {
   padding-left: 20px;
+}
+
+.accordion-button::after {
+  margin-right: 20px;
 }
 
 @media screen and (max-width: 1024px) {
