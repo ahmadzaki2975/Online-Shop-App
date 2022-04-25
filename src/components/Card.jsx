@@ -1,4 +1,6 @@
-import ItemDetailsModal from "./ItemDetailsModal";
+import { BsCash, BsStack, BsInfoSquareFill } from "react-icons/bs";
+import { IoLocationSharp, IoCashSharp } from "react-icons/io5";
+import { FaShoppingBasket } from "react-icons/fa";
 
 function Card(props) {
   return (
@@ -10,12 +12,20 @@ function Card(props) {
       />
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>
-        <p className="card-text">{props.price}</p>
-        <p>Stock : {props.stock}</p>
-        {/* <p>Seller : {props.seller}</p> */}
-        <p>{props.location}</p>
+        <div className="item-info">
+          <p className="card-text" title={`Price : Rp. ${props.price}`} style={{cursor:"pointer"}}>
+            <IoCashSharp /> Rp. {props.price}
+          </p>
+          <p title={`Stock : ${props.stock}`} style={{cursor:"pointer"}}>
+            <BsStack /> Stock : <span className="fw-bold text-success">{props.stock}</span>
+          </p>
+          {/* <p>Seller : {props.seller}</p> */}
+          <p title={`Location : ${props.location}`} style={{cursor:"pointer"}}>
+            <IoLocationSharp title="Location" /> {props.location}
+          </p>
+        </div>
         <a href="#" className="btn btn-success ms-2">
-          Order
+          <FaShoppingBasket /> Order
         </a>
         <a
           href="#"
@@ -23,18 +33,9 @@ function Card(props) {
           data-bs-toggle="modal"
           data-bs-target={`#ItemDetModal${props.id}`}
         >
-          Details
+          <BsInfoSquareFill /> Details
         </a>
       </div>
-      {/* <ItemDetailsModal 
-        id={props.id}
-        key={props.id}
-        name={props.name}
-        price={props.price}
-        location={props.location}
-        seller={props.seller}
-        stock={props.stock}
-      /> */}
     </div>
   );
 }

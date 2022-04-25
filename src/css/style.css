@@ -17,6 +17,20 @@ a:hover {
   color: white;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
 .navbar {
   color: white;
   background: linear-gradient(-30deg, #18e5f3, #695DEF) !important;
@@ -164,8 +178,8 @@ a:hover {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 2px 3px rgba(0, 0, 0, 0.5);
-  max-height: 350px;
-  min-height: 350px;
+  max-height: 400px;
+  min-height: 400px;
   width: 250px;
 }
 .card p {
@@ -176,12 +190,14 @@ a:hover {
   float: right;
 }
 .card img {
-  max-height: 120px;
-  min-height: 120px;
+  max-height: 120px !important;
+  min-height: 120px !important;
 }
 
-.card-body {
-  height: 230px !important;
+.card-body .item-info {
+  padding: 0 5px;
+  height: 100px;
+  overflow-y: scroll;
 }
 
 .your-card-container {
@@ -199,6 +215,11 @@ a:hover {
   margin: 0;
   display: inline-flex;
   margin: 10px 15px;
+}
+.your-card-container .YourCard .card-body {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .accordion-item {

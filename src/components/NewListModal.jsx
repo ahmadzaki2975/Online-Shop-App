@@ -108,7 +108,7 @@ function NewListModal(props) {
                     location.length == 0
                   ) {
                     setFlashMessages(
-                      "Failed to register item, some forms are not filled."
+                      "Failed to register item, all form inputs must be filled"
                     );
                     
                   } else {
