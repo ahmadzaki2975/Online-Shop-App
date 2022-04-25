@@ -13,10 +13,13 @@ a {
   text-decoration: none;
   color: white;
 }
+a:hover {
+  color: white;
+}
 
 .navbar {
   color: white;
-  background: linear-gradient(-30deg, #49ebf5, #695DEF) !important;
+  background: linear-gradient(-30deg, #18e5f3, #695DEF) !important;
   padding: 0 20px 0 20px;
   height: 65px;
   position: -webkit-sticky;
@@ -161,7 +164,8 @@ a {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 2px 3px rgba(0, 0, 0, 0.5);
-  height: 350px;
+  max-height: 350px;
+  min-height: 350px;
   width: 250px;
 }
 .card p {
@@ -172,7 +176,12 @@ a {
   float: right;
 }
 .card img {
-  height: 150px;
+  max-height: 120px;
+  min-height: 120px;
+}
+
+.card-body {
+  height: 230px !important;
 }
 
 .your-card-container {
@@ -190,7 +199,6 @@ a {
   margin: 0;
   display: inline-flex;
   margin: 10px 15px;
-  zoom: 1;
 }
 
 .accordion-item {

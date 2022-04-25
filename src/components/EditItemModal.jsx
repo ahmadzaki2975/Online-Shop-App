@@ -1,19 +1,18 @@
 import { useState } from "react";
-import { nanoid } from "nanoid";
 
-function NewListModal(props) {
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState(100000);
-  const [stock, setStock] = useState(1);
-  const [location, setLocation] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
+function EditItemModal(props) {
+  const [name, setName] = useState(props.name);
+  const [price, setPrice] = useState(props.price);
+  const [stock, setStock] = useState(props.stock);
+  const [location, setLocation] = useState(props.location);
+  const username = props.seller;
 
   return (
-    <div className="modal" tabIndex={-1} id="NewListModal">
+    <div className="modal" tabIndex={-1} id={`editItemModal${props.id}`}>
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Add New Listing</h5>
+            <h5 className="modal-title">Edit Item</h5>
             <button
               type="button"
               className="btn-close"
@@ -22,7 +21,7 @@ function NewListModal(props) {
             />
           </div>
           <div className="modal-body">
-            <form>
+          <form>
               <div className="mb-1">
                 <label className="form-label">Item Name</label>
                 <input
@@ -35,7 +34,9 @@ function NewListModal(props) {
                 <div className="form-text">Please use accurate names</div>
               </div>
               <div className="mb-3">
-                <label className="form-label">Item Price (Rp.)</label>
+                <label className="form-label">
+                  Item Price (Rp.)
+                </label>
                 <input
                   type="number"
                   className="form-control"
@@ -44,7 +45,9 @@ function NewListModal(props) {
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Item Stock</label>
+                <label className="form-label">
+                  Item Stock
+                </label>
                 <input
                   type="number"
                   className="form-control"
@@ -53,7 +56,9 @@ function NewListModal(props) {
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Location</label>
+                <label className="form-label">
+                  Location
+                </label>
                 <input
                   // type="text"
                   placeholder="City, Province"
@@ -63,45 +68,33 @@ function NewListModal(props) {
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Seller name</label>
+                <label className="form-label">
+                  Seller name
+                </label>
                 <input
                   // type="text"
                   className="form-control"
                   disabled
-                  value={props.username}
+                  placeholder={props.seller}
                 />
               </div>
-              <div className="errorMsg">{errorMsg}</div>
               <button
                 type="submit"
                 className="btn btn-primary"
                 data-bs-dismiss="modal"
-                data-backdrop="static"
-                onClick={(e) => {
-                  const itemId = nanoid();
+                style={{float:"left"}}
+                onClick={() => {
                   let newItems = {
-                    id: itemId,
-                    key: itemId,
-                    name: name,
+                    id: props.id,
+                    key: props.id,
+                    name : name,
                     price: price,
                     stock: stock,
-                    location: location,
-                    seller: props.username,
-                  };
-                  if (
-                    name.length == 0 ||
-                    price.length == 0 ||
-                    stock.length == 0 ||
-                    location.length == 0
-                  ) {
-                    // setErrorMsg("Please complete the form");
-                    // alert("Please complete the form")
-                    e.preventDefault;
-                  } else {
-                    props.addListingHandler(newItems);
-                    setErrorMsg("");
-                    console.log(newItems);
+                    location : location,
+                    seller : username
                   }
+                  props.updateItemHandler(props.id, newItems);
+                  return(false);
                 }}
               >
                 Submit
@@ -111,10 +104,10 @@ function NewListModal(props) {
           <div className="modal-footer">
             <button
               type="button"
-              className="btn btn-danger"
+              className="btn btn-secondary"
               data-bs-dismiss="modal"
             >
-              Cancel
+              Close
             </button>
           </div>
         </div>
@@ -123,4 +116,4 @@ function NewListModal(props) {
   );
 }
 
-export default NewListModal;
+export default EditItemModal;

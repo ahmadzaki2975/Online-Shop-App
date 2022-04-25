@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { FaTag } from "react-icons/fa";
+import { nanoid } from "nanoid";
 import YourCard from "./YourCard";
 import NewListModal from "./NewListModal";
+import FlashNotice from "./FlashNotice";
 
 function UserIdentity(props) {
   const [uname, setUname] = useState("");
-  const [formInput, setFormInput] = useState("");
   const [errorMessages, setErrorMessages] = useState("");
+  const [flashMessages, setFlashMessages] = useState("")
 
   const itemsFromDB = props.itemsFromDB;
 
@@ -27,84 +29,89 @@ function UserIdentity(props) {
   function DetermineLogin() {
     if (props.currentUser != null) {
       return (
-        <div className="logged-content" id="yourItems">
-          <div className="left">
-            <h2>
-              <FaUserAlt className="logged-user-logo" />
-              Welcome,{" "}
-              <span style={{ fontWeight: "bold" }}>{props.currentUser}</span>!
-            </h2>
-            <button
-              type="button"
-              className="btn btn-danger me-2"
-              onClick={() => {
-                props.logoutHandler();
-                setUname("");
-                // console.log(props.currentUser);
-              }}
-            >
-              Log Out
-            </button>
-            <button
-              type="button"
-              className="btn btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target="#NewListModal"
-            >
-              Add New Listing
-            </button>
-
-            <div className="accordion" id="accordionExample">
-              <div className="accordion-item">
-                <h2 className="accordion-header" id="headingOne">
-                  <button
-                    className="accordion-button m-0 p-0"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
+        <>
+          <FlashNotice flashMsg={flashMsg}/>
+          <div className="logged-content" id="yourItems">
+            <div className="left">
+              <h2>
+                <FaUserAlt className="logged-user-logo" />
+                Welcome,{" "}
+                <span style={{ fontWeight: "bold" }}>{props.currentUser}</span>!
+              </h2>
+              <button
+                type="button"
+                className="btn btn-danger me-2"
+                onClick={() => {
+                  props.logoutHandler();
+                  setUname("");
+                  // console.log(props.currentUser);
+                }}
+              >
+                Log Out
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#NewListModal"
+              >
+                Add New Listing
+              </button>
+              <div className="accordion" id="accordionExample">
+                <div className="accordion-item">
+                  <h2 className="accordion-header" id="headingOne">
+                    <button
+                      className="accordion-button m-0 p-0"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      <h2 className="my-3">
+                        Your Items <FaTag />
+                      </h2>
+                    </button>
+                  </h2>
+                  <div
+                    id="collapseOne"
+                    className="accordion-collapse collapse show"
+                    aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample"
                   >
-                    <h2 className="my-3">
-                      Your Items <FaTag />
-                    </h2>
-                  </button>
-                </h2>
-                <div
-                  id="collapseOne"
-                  className="accordion-collapse collapse show"
-                  aria-labelledby="headingOne"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div className="accordion-body">
-                    <div className="your-card-container">
-                      {yourItems.map((item) => {
-                        return (
-                          <YourCard
-                            // className="YourCard"
-                            name={item.name}
-                            id={item.id}
-                            key={item.id}
-                            price={item.price}
-                            location={item.location}
-                            seller={item.seller}
-                            stock={item.stock}
-                            image="2.jpg"
-                          />
-                        );
-                      })}
-                      <HaveItem />
+                    <div className="accordion-body">
+                      <div className="your-card-container">
+                        {yourItems.map((item) => {
+                          return (
+                            <YourCard
+                              // className="YourCard"
+                              name={item.name}
+                              id={item.id}
+                              key={item.id}
+                              price={item.price}
+                              location={item.location}
+                              seller={item.seller}
+                              stock={item.stock}
+                              image="2.jpg"
+                              //? functions
+                              deleteItemHandler={props.deleteItemHandler}
+                              updateItemHandler={props.updateItemHandler}
+                            />
+                          );
+                        })}
+                        <HaveItem />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <NewListModal
+                addListingHandler={props.addListingHandler}
+                username={uname}
+              />
             </div>
-            <NewListModal
-              addListingHandler={props.addListingHandler}
-              username={uname}
-            />
           </div>
-        </div>
+        </>
       );
     } else {
       return (
@@ -124,7 +131,9 @@ function UserIdentity(props) {
                   className="form-control"
                   type="text"
                   value={uname}
-                  onChange={(e) => setUname(e.target.value)}
+                  onChange={(e) => {
+                    setUname(e.target.value);
+                  }}
                   autoFocus
                 />
                 <div className="errorMsg">{errorMessages}</div>
@@ -137,9 +146,9 @@ function UserIdentity(props) {
                   // console.log(uname);
                   if (uname == "") {
                     setErrorMessages("Username can't be empty");
-                  } else if (uname.length >= 16 || uname.length < 4) {
+                  } else if (uname.length >= 12 || uname.length < 3) {
                     setErrorMessages(
-                      "Username must be between 4 - 16 characters"
+                      "Username must be between 3 - 12 characters"
                     );
                   } else {
                     props.loginHandler(uname);
@@ -153,7 +162,7 @@ function UserIdentity(props) {
             </form>
           </div>
           <div className="right">
-            <h1>ADS Placeholder</h1>
+            <h1>Placeholder</h1>
           </div>
         </div>
       );

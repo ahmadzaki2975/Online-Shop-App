@@ -14,6 +14,9 @@ body {
 a {
   text-decoration: none;
   color: white;
+  &:hover {
+    color: white;
+  }
 }
 
 .navbar {
@@ -160,7 +163,8 @@ a {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 2px 3px rgba(0, 0, 0, 0.5);
-  height: 350px;
+  max-height: 350px;
+  min-height: 350px;
   width: 250px;
   p {
     margin-bottom: 5px;
@@ -170,12 +174,15 @@ a {
     float: right;
   }
   img {
-    height: 150px;
+    max-height: 120px !important;
+    min-height: 120px !important;
   }
 }
 
+.card-body {
+  height: 230px !important;
+}
 .your-card-container {
-  // width: fit-content;
   height: fit-content;
   white-space: nowrap;
   position: relative;
@@ -188,7 +195,10 @@ a {
     margin: 0;
     display: inline-flex;
     margin: 10px 15px;
-    zoom: 1;
+    // zoom: 1;
+    .card-body {
+      height: fit-content;
+    }
   }
 }
 
