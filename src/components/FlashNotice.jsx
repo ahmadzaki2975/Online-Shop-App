@@ -1,6 +1,5 @@
 function FlashNotice(props) {
   if (props.flashMessages != "") {
-    console.log(props.flashMessages);
     return (
       <div
         className="alert alert-dismissible alert-danger d-flex align-items-center my-3"

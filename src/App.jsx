@@ -3,7 +3,6 @@ import Carousel from "./components/Carousel";
 import Navbar from "./components/Navbar";
 import UserIdentity from "./components/UserIdentity";
 import Market from "./components/Market";
-import FlashNotice from "./components/FlashNotice";
 import { FaShoppingBasket } from "react-icons/fa";
 import { db } from "./firebase";
 import {
