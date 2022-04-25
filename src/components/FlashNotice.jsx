@@ -1,12 +1,23 @@
 function FlashNotice(props) {
-  if(props.errorMsg != '') {
+  if (props.flashMessages != "") {
+    console.log(props.flashMessages);
     return (
-      <div className="alert alert-danger d-flex align-items-center" role="alert">
-        <div>An example danger alert with an icon</div>
+      <div
+        className="alert alert-dismissible alert-danger d-flex align-items-center my-3"
+        role="alert"
+      >
+        <div>{props.flashMessages}</div>
+        <button
+          type="button"
+          className="btn-close"
+          data-bs-dismiss="alert"
+          onClick={() => {
+            props.clearFlashMessage();
+          }}
+        />
       </div>
     );
   }
-  
 }
 
-export default FlashNotice
+export default FlashNotice;

@@ -6,7 +6,19 @@ function NewListModal(props) {
   const [price, setPrice] = useState(100000);
   const [stock, setStock] = useState(1);
   const [location, setLocation] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
+  const [flashMessages, setFlashMessages] = useState("");
+
+  function formCallback() {
+    props.getFlashMessage(flashMessages);
+  }
+
+  //? clear flash message after 3s (not working)
+  // async function clearFlashMessage() {
+  //   const timer = setTimeout(() => {
+  //     setFlashMessages("");
+  //     console.log("3s later");
+  //   }, 3000);
+  // }
 
   return (
     <div className="modal" tabIndex={-1} id="NewListModal">
@@ -22,7 +34,11 @@ function NewListModal(props) {
             />
           </div>
           <div className="modal-body">
-            <form>
+            <form
+              onSubmit={() => {
+                formCallback();
+              }}
+            >
               <div className="mb-1">
                 <label className="form-label">Item Name</label>
                 <input
@@ -55,7 +71,6 @@ function NewListModal(props) {
               <div className="mb-3">
                 <label className="form-label">Location</label>
                 <input
-                  // type="text"
                   placeholder="City, Province"
                   className="form-control"
                   value={location}
@@ -65,13 +80,11 @@ function NewListModal(props) {
               <div className="mb-3">
                 <label className="form-label">Seller name</label>
                 <input
-                  // type="text"
                   className="form-control"
                   disabled
                   value={props.username}
                 />
               </div>
-              <div className="errorMsg">{errorMsg}</div>
               <button
                 type="submit"
                 className="btn btn-primary"
@@ -94,12 +107,13 @@ function NewListModal(props) {
                     stock.length == 0 ||
                     location.length == 0
                   ) {
-                    // setErrorMsg("Please complete the form");
-                    // alert("Please complete the form")
-                    e.preventDefault;
+                    setFlashMessages(
+                      "Failed to register item, some forms are not filled."
+                    );
+                    
                   } else {
                     props.addListingHandler(newItems);
-                    setErrorMsg("");
+                    setFlashMessages("");
                     console.log(newItems);
                   }
                 }}

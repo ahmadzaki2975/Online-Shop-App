@@ -9,7 +9,7 @@ import FlashNotice from "./FlashNotice";
 function UserIdentity(props) {
   const [uname, setUname] = useState("");
   const [errorMessages, setErrorMessages] = useState("");
-  const [flashMessages, setFlashMessages] = useState("")
+  const [flashMessages, setFlashMessages] = useState("");
 
   const itemsFromDB = props.itemsFromDB;
 
@@ -19,99 +19,109 @@ function UserIdentity(props) {
     return item.seller == uname;
   });
 
+  function getFlashMessage(childFlashMsg) {
+    setFlashMessages(childFlashMsg);
+  }
+
   function HaveItem() {
     if (yourItems.length == 0) {
-      console.log("Not empty");
+      console.log("Empty");
       return <h5 style={{ color: "red" }}>You haven't listed any items yet</h5>;
     }
+  }
+
+  function clearFlashMessage() {
+    setFlashMessages("");
   }
 
   function DetermineLogin() {
     if (props.currentUser != null) {
       return (
-        <>
-          <FlashNotice flashMsg={flashMsg}/>
-          <div className="logged-content" id="yourItems">
-            <div className="left">
-              <h2>
-                <FaUserAlt className="logged-user-logo" />
-                Welcome,{" "}
-                <span style={{ fontWeight: "bold" }}>{props.currentUser}</span>!
-              </h2>
-              <button
-                type="button"
-                className="btn btn-danger me-2"
-                onClick={() => {
-                  props.logoutHandler();
-                  setUname("");
-                  // console.log(props.currentUser);
-                }}
-              >
-                Log Out
-              </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#NewListModal"
-              >
-                Add New Listing
-              </button>
-              <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
-                  <h2 className="accordion-header" id="headingOne">
-                    <button
-                      className="accordion-button m-0 p-0"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      <h2 className="my-3">
-                        Your Items <FaTag />
-                      </h2>
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseOne"
-                    className="accordion-collapse collapse show"
-                    aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample"
+        <div className="logged-content" id="yourItems">
+          <div className="left">
+            <h2>
+              <FaUserAlt className="logged-user-logo" />
+              Welcome,{" "}
+              <span style={{ fontWeight: "bold" }}>{props.currentUser}</span>!
+            </h2>
+            <button
+              type="button"
+              className="btn btn-danger me-2"
+              onClick={() => {
+                props.logoutHandler();
+                setUname("");
+                setFlashMessages("");
+              }}
+            >
+              Log Out
+            </button>
+            <button
+              // type="button"
+              className="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#NewListModal"
+            >
+              Add New Listing
+            </button>
+            <FlashNotice
+              flashMessages={flashMessages}
+              clearFlashMessage={clearFlashMessage}
+            />
+            <div className="accordion" id="accordionExample">
+              <div className="accordion-item">
+                <h2 className="accordion-header" id="headingOne">
+                  <button
+                    className="accordion-button m-0 p-0"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
                   >
-                    <div className="accordion-body">
-                      <div className="your-card-container">
-                        {yourItems.map((item) => {
-                          return (
-                            <YourCard
-                              // className="YourCard"
-                              name={item.name}
-                              id={item.id}
-                              key={item.id}
-                              price={item.price}
-                              location={item.location}
-                              seller={item.seller}
-                              stock={item.stock}
-                              image="2.jpg"
-                              //? functions
-                              deleteItemHandler={props.deleteItemHandler}
-                              updateItemHandler={props.updateItemHandler}
-                            />
-                          );
-                        })}
-                        <HaveItem />
-                      </div>
+                    <h2 className="my-3">
+                      Your Items <FaTag />
+                    </h2>
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  className="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div className="accordion-body">
+                    <div className="your-card-container">
+                      {yourItems.map((item) => {
+                        return (
+                          <YourCard
+                            // className="YourCard"
+                            name={item.name}
+                            id={item.id}
+                            key={item.id}
+                            price={item.price}
+                            location={item.location}
+                            seller={item.seller}
+                            stock={item.stock}
+                            image="2.jpg"
+                            //? functions
+                            deleteItemHandler={props.deleteItemHandler}
+                            updateItemHandler={props.updateItemHandler}
+                          />
+                        );
+                      })}
+                      <HaveItem />
                     </div>
                   </div>
                 </div>
               </div>
-              <NewListModal
-                addListingHandler={props.addListingHandler}
-                username={uname}
-              />
             </div>
+            <NewListModal
+              addListingHandler={props.addListingHandler}
+              getFlashMessage={getFlashMessage}
+              username={uname}
+            />
           </div>
-        </>
+        </div>
       );
     } else {
       return (
