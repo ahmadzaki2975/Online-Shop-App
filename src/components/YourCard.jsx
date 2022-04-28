@@ -1,4 +1,7 @@
 import { nanoid } from "nanoid";
+import { BsCash, BsStack, BsInfoSquareFill } from "react-icons/bs";
+import { IoLocationSharp, IoCashSharp } from "react-icons/io5";
+import { FaShoppingBasket } from "react-icons/fa";
 import EditItemModal from "./EditItemModal";
 
 function YourCard(props) {
@@ -12,11 +15,27 @@ function YourCard(props) {
         alt="..."
       />
       <div className="card-body">
-        <h5 className="card-title">{props.name}</h5>
-        <p className="card-text">{props.price}</p>
-        <p>Stock : {props.stock}</p>
-        <p>Seller : {props.seller}</p>
-        <p>{props.location}</p>
+      <h5 className="card-title">{props.name}</h5>
+        <div className="item-info">
+          <p
+            className="card-text"
+            title={`Price : Rp. ${props.price}`}
+            style={{ cursor: "pointer" }}
+          >
+            <IoCashSharp /> Rp. {props.price}
+          </p>
+          <p title={`Stock : ${props.stock}`} style={{ cursor: "pointer" }}>
+            <BsStack /> Stock :{" "}
+            <span className="fw-bold text-success">{props.stock}</span>
+          </p>
+          {/* <p>Seller : {props.seller}</p> */}
+          <p
+            title={`Location : ${props.location}`}
+            style={{ cursor: "pointer" }}
+          >
+            <IoLocationSharp title="Location" /> {props.location}
+          </p>
+        </div>
         <button
           className="btn btn-danger ms-2"
           onClick={() => {

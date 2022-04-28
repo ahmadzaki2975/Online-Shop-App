@@ -5,6 +5,7 @@ import { nanoid } from "nanoid";
 import YourCard from "./YourCard";
 import NewListModal from "./NewListModal";
 import FlashNotice from "./FlashNotice";
+import AccordionItem from "./AccordionItem";
 
 function UserIdentity(props) {
   const [uname, setUname] = useState("");
@@ -90,11 +91,10 @@ function UserIdentity(props) {
                   data-bs-parent="#accordionExample"
                 >
                   <div className="accordion-body">
-                    <div className="your-card-container">
+                    <div className="accordion accordion-flush" id="accordionFlush">
                       {yourItems.map((item) => {
                         return (
-                          <YourCard
-                            // className="YourCard"
+                          <AccordionItem
                             name={item.name}
                             id={item.id}
                             key={item.id}
@@ -136,6 +136,7 @@ function UserIdentity(props) {
                 <label htmlFor="exampleInputEmail1" className="form-label">
                   Username
                 </label>
+                <div className="form-text text-primary">Your username will be used as seller name</div>
                 <input
                   placeholder="Insert your name"
                   className="form-control"
@@ -143,6 +144,7 @@ function UserIdentity(props) {
                   value={uname}
                   onChange={(e) => {
                     setUname(e.target.value);
+                    setErrorMessages("");
                   }}
                   autoFocus
                 />
@@ -156,9 +158,9 @@ function UserIdentity(props) {
                   // console.log(uname);
                   if (uname == "") {
                     setErrorMessages("Username can't be empty");
-                  } else if (uname.length >= 12 || uname.length < 3) {
+                  } else if (uname.length >= 12 || uname.length < 4) {
                     setErrorMessages(
-                      "Username must be between 3 - 12 characters"
+                      "Username must be between 4 - 12 characters"
                     );
                   } else {
                     props.loginHandler(uname);

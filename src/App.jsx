@@ -51,12 +51,20 @@ function App() {
   }
 
   //? Add item function
-  async function addListingHandler(item) {
+  async function addListingHandler(id, item) {
+    //! undeleteable dont use
+    // try {
+    //   const docRef = await setDoc(collection(db, "items"), item);
+    //   console.log("Document written with ID: ", docRef.id);
+    // } catch (e) {
+    //   console.error("Error adding document: ", e);
+    // }
+
     try {
-      const docRef = await addDoc(collection(db, "items"), item);
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
+      await setDoc(doc(db, "items", id), item)
+      console.log(id + " " + item)
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -65,21 +73,19 @@ function App() {
     try {
       toString(id);
       const docRef = doc(db, "items", id);
-      console.log(docRef);
-      // await deleteDoc(docRef);
+      console.log(`Deleted item with id ${id}`);
+      await deleteDoc(docRef);
     } catch (error) {
       console.log(error);
     }
-    // await deleteDoc(doc(db, "items", id));
   }
 
   //? Update item function
   async function updateItemHandler(id, updatedItem) {
     try {
       console.log(`Item with id ${id} updated`);
-      // console.log(updatedItem);
       const docRef = doc(db, "items", id);
-      await setDoc(docRef, updatedItem, {merge: true});
+      await setDoc(docRef, updatedItem, { merge: true });
     } catch (error) {
       console.log(error);
     }
@@ -110,6 +116,8 @@ function App() {
         itemsFromDB={itemsFromDB}
         username={username}
         notYourItems={notYourItems}
+        //? functions
+        updateItemHandler={updateItemHandler}
       />
     </div>
   );

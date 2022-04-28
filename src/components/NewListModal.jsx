@@ -12,7 +12,7 @@ function NewListModal(props) {
     props.getFlashMessage(flashMessages);
   }
 
-  //? clear flash message after 3s (not working)
+  //? clear flash message after 3s
   // async function clearFlashMessage() {
   //   const timer = setTimeout(() => {
   //     setFlashMessages("");
@@ -86,13 +86,12 @@ function NewListModal(props) {
                 />
               </div>
               <button
-                type="submit"
+                type="button"
                 className="btn btn-primary"
                 data-bs-dismiss="modal"
-                data-backdrop="static"
                 onClick={(e) => {
                   const itemId = nanoid();
-                  let newItems = {
+                  let newItem = {
                     id: itemId,
                     key: itemId,
                     name: name,
@@ -112,9 +111,9 @@ function NewListModal(props) {
                     );
                     
                   } else {
-                    props.addListingHandler(newItems);
+                    props.addListingHandler(itemId, newItem);
                     setFlashMessages("");
-                    console.log(newItems);
+                    console.log(newItem);
                   }
                 }}
               >

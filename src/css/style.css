@@ -19,15 +19,16 @@ a:hover {
 
 ::-webkit-scrollbar {
   width: 5px;
+  z-index: 9;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #898989;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: rgb(162, 162, 162);
   border-radius: 5px;
 }
 
@@ -107,7 +108,7 @@ a:hover {
   float: right;
 }
 .unlogged-content .right {
-  height: 300px;
+  height: 85%;
   width: 50%;
   background: linear-gradient(60deg, #F99292, #EF5DA8);
   margin: 20px;
@@ -178,8 +179,8 @@ a:hover {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 2px 3px rgba(0, 0, 0, 0.5);
-  max-height: 400px;
-  min-height: 400px;
+  max-height: 360px;
+  min-height: 360px;
   width: 250px;
 }
 .card p {
@@ -194,6 +195,9 @@ a:hover {
   min-height: 120px !important;
 }
 
+.card-body .card-title {
+  min-height: 48px;
+}
 .card-body .item-info {
   padding: 0 5px;
   height: 100px;
@@ -221,7 +225,6 @@ a:hover {
   height: -moz-fit-content;
   height: fit-content;
 }
-
 .accordion-item {
   padding: 0 !important;
   margin-top: 20px;

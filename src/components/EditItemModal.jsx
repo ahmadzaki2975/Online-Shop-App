@@ -79,7 +79,7 @@ function EditItemModal(props) {
                 />
               </div>
               <button
-                type="submit"
+                type="button"
                 className="btn btn-primary"
                 data-bs-dismiss="modal"
                 style={{float:"left"}}
@@ -94,7 +94,6 @@ function EditItemModal(props) {
                     seller : username
                   }
                   props.updateItemHandler(props.id, newItems);
-                  return(false);
                 }}
               >
                 Submit

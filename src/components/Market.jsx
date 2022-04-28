@@ -20,7 +20,10 @@ function Market(props) {
                   location={item.location}
                   seller={item.seller}
                   stock={item.stock}
+                  username={props.username}
                   image="3.jpg"
+                  //? functions
+                  updateItemHandler={props.updateItemHandler}
                 />
                 <ItemDetailsModal
                   className="card"
