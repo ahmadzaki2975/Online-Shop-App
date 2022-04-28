@@ -190,7 +190,8 @@ a:hover {
   margin-top: 10px;
   float: right;
 }
-.card img {
+.card .card-img {
+  background: linear-gradient(-30deg, #18e5f3, #695DEF);
   max-height: 120px !important;
   min-height: 120px !important;
 }

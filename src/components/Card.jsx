@@ -2,10 +2,9 @@ import { BsStack, BsInfoSquareFill } from "react-icons/bs";
 import { IoLocationSharp, IoCashSharp } from "react-icons/io5";
 import { FaShoppingBasket } from "react-icons/fa";
 import { ImBlocked } from "react-icons/im";
-import { useState } from "react";
+import { FiCameraOff } from "react-icons/fi";
 
 function Card(props) {
-
   function Buttons() {
     if (props.username == null || props.stock == 0) {
       return (
@@ -29,14 +28,14 @@ function Card(props) {
     } else {
       return (
         <>
-          <a 
-            className="btn btn-success ms-2" 
+          <a
+            className="btn btn-success ms-2"
             onClick={() => {
-                const updatedStock = props.stock - 1;
-                const updatedItem = {stock : updatedStock}
-                props.updateItemHandler(props.id, updatedItem);
-              }
-            }>
+              const updatedStock = props.stock - 1;
+              const updatedItem = { stock: updatedStock };
+              props.updateItemHandler(props.id, updatedItem);
+            }}
+          >
             <FaShoppingBasket /> Order
           </a>
           <a
@@ -52,13 +51,37 @@ function Card(props) {
     }
   }
 
+  function StockColor() {
+    if(props.stock != 0) {
+      return(
+        <p title={`Stock : ${props.stock}`} style={{ cursor: "pointer" }}>
+            <BsStack /> Stock :{" "}
+            <span className="fw-bold text-success">{props.stock}</span>
+        </p>
+      )
+    } else {
+      return(
+        <p title={`Stock : ${props.stock}`} style={{ cursor: "pointer" }}>
+            <BsStack /> Stock :{" "}
+            <span className="fw-bold text-danger">{props.stock}</span>
+        </p>
+      )
+    }
+  }
+
   return (
     <div className="card" style={{ width: "18rem" }}>
-      <img
-        src={"src/images/" + props.image}
+      {/* <img
+        // src={"src/images/"}
         className="card-img-top"
-        alt="..."
-      />
+        // alt="..."
+      /> */}
+      <div className="card-img text-white d-flex flex-column justify-content-center align-items-center">
+        <FiCameraOff className="fs-1 my-1"/>
+        <div>
+        <p>Photos not available (yet)</p>
+        </div>
+      </div>
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>
         <div className="solid-line my-1"></div>
@@ -70,10 +93,7 @@ function Card(props) {
           >
             <IoCashSharp /> Rp. {props.price}
           </p>
-          <p title={`Stock : ${props.stock}`} style={{ cursor: "pointer" }}>
-            <BsStack /> Stock :{" "}
-            <span className="fw-bold text-success">{props.stock}</span>
-          </p>
+          <StockColor />
           {/* <p>Seller : {props.seller}</p> */}
           <p
             title={`Location : ${props.location}`}

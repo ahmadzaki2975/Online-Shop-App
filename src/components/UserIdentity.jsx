@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { FaTag } from "react-icons/fa";
-import { nanoid } from "nanoid";
-import YourCard from "./YourCard";
 import NewListModal from "./NewListModal";
 import FlashNotice from "./FlashNotice";
 import AccordionItem from "./AccordionItem";

@@ -188,7 +188,8 @@ a {
     margin-top: 10px;
     float: right;
   }
-  img {
+  .card-img {
+    background: $headerColor2;
     max-height: 120px !important;
     min-height: 120px !important;
   }

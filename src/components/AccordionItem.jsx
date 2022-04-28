@@ -7,6 +7,24 @@ import EditItemModal from "./EditItemModal";
 function AccordionItem(props) {
   const itemId = props.id;
 
+  function StockColor() {
+    if (props.stock != 0) {
+      return (
+        <p title={`Stock : ${props.stock}`} style={{ cursor: "pointer" }}>
+          <BsStack /> Stock :{" "}
+          <span className="fw-bold text-success">{props.stock}</span>
+        </p>
+      );
+    } else {
+      return (
+        <p title={`Stock : ${props.stock}`} style={{ cursor: "pointer" }}>
+          <BsStack /> Stock :{" "}
+          <span className="fw-bold text-danger">{props.stock}</span>
+        </p>
+      );
+    }
+  }
+
   return (
     <div className="accordion-item">
       <h2 className="accordion-header" id={`flush-heading${itemId}`}>
@@ -36,10 +54,7 @@ function AccordionItem(props) {
             >
               <IoCashSharp /> Rp. {props.price}
             </p>
-            <p title={`Stock : ${props.stock}`} style={{ cursor: "pointer" }}>
-              <BsStack /> Stock :{" "}
-              <span className="fw-bold text-success">{props.stock}</span>
-            </p>
+            <StockColor />
             <p
               title={`Location : ${props.location}`}
               style={{ cursor: "pointer" }}
