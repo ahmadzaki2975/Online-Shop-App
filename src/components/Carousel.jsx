@@ -31,22 +31,22 @@ function Carousel() {
         <div className="carousel-item active">
           <img src="src/images/1.jpg" className="d-block w-100" alt="..." />
           <div className="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+            <h5>Promotion 1</h5>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima, consequatur!</p>
           </div>
         </div>
         <div className="carousel-item">
           <img src="src/images/2.jpg" className="d-block w-100" alt="..." />
           <div className="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
+            <h5>Promotion 2</h5>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, ipsa.</p>
           </div>
         </div>
         <div className="carousel-item">
           <img src="src/images/3.jpg" className="d-block w-100" alt="..." />
           <div className="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
+            <h5>Promotion 3</h5>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, dolor.</p>
           </div>
         </div>
       </div>
