@@ -108,7 +108,7 @@ function App() {
         updateItemHandler={updateItemHandler}
       />
       <div id="market" style={{ position: "relative", top: "-40px" }}></div>
-      <div className="dashed-line"></div>
+      <div className="solid-line"></div>
       <h1 className="text-center">
         MARKET <FaShoppingBasket />
       </h1>

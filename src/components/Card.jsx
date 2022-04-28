@@ -6,7 +6,7 @@ import { FiCameraOff } from "react-icons/fi";
 
 function Card(props) {
   function Buttons() {
-    if (props.username == null || props.stock == 0) {
+    if (props.username == null || props.stock <= 0) {
       return (
         <>
           <a
@@ -52,7 +52,7 @@ function Card(props) {
   }
 
   function StockColor() {
-    if(props.stock != 0) {
+    if(props.stock >= 0) {
       return(
         <p title={`Stock : ${props.stock}`} style={{ cursor: "pointer" }}>
             <BsStack /> Stock :{" "}
@@ -79,7 +79,7 @@ function Card(props) {
       <div className="card-img text-white d-flex flex-column justify-content-center align-items-center">
         <FiCameraOff className="fs-1 my-1"/>
         <div>
-        <p>Photos not available (yet)</p>
+        <p>Photos not implemented yet</p>
         </div>
       </div>
       <div className="card-body">
