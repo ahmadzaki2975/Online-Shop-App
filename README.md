@@ -1,6 +1,8 @@
-# OnlineShopApp
+# 🛍 OnlineShopApp
 
 Project for CRUD-based website using React.js and Firebase
+
+Hosted via Vercel : https://online-shop-app-ahmadzaki2975.vercel.app
 
 ### 🎨 Design Concept
 
@@ -29,7 +31,12 @@ Project for CRUD-based website using React.js and Firebase
 <details>
   <summary>Final Design</summary>
   <pre align="center">
-  Placeholder
+    <img src="https://user-images.githubusercontent.com/87590846/165892443-81a4e887-15d4-45aa-a1f5-f540501cc823.png">
+    <img src="https://user-images.githubusercontent.com/87590846/165893497-fbb9b0f2-14b7-4bcf-81e1-c0ae8869a9ff.png">
+    <img src="https://user-images.githubusercontent.com/87590846/165893584-a6fde4ff-5b4d-42ef-9cb9-303a2436b3c8.png">
+    <img src="https://user-images.githubusercontent.com/87590846/165893774-7a1e66d4-e949-4e4c-a52e-0bce8ac2e67c.png">
+    <img src="https://user-images.githubusercontent.com/87590846/165893225-bbc6ed58-02db-4445-a3ae-ae64be3a22ec.png">
+    <img src="https://user-images.githubusercontent.com/87590846/165893853-fe0f8ea7-f1a8-40dc-9d02-8ead42f47e56.png">
   </pre>
 </details>
 
