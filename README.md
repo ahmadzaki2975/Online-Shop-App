@@ -1,4 +1,4 @@
-# OnlineShopApp
+# 🛍 OnlineShopApp
 
 Project for CRUD-based website using React.js and Firebase
 
