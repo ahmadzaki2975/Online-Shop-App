@@ -44,7 +44,7 @@ Hosted via Vercel : https://online-shop-app-ahmadzaki2975.vercel.app
 
 Most features are only available when you are logged in. When logged in, you can add items to the store and you can manage them by editing or deleting. You can also press order button in others' item which will decrement the item stock by 1.
 
-However, the login authentication system are not by any means safe. Others can use your username and manage items that doesn't belong to them.
+However, the login authentication system is not by any means safe. Others can use your username and manage items that doesn't belong to them.
 
 ### ⚠ Warning:
 Anything you post can be seen by others, so do not post any sensitive information in your items. This website isn't designed with security in mind.
