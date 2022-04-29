@@ -1,7 +1,6 @@
 import { nanoid } from "nanoid";
-import { BsCash, BsStack, BsInfoSquareFill } from "react-icons/bs";
+import { BsStack } from "react-icons/bs";
 import { IoLocationSharp, IoCashSharp } from "react-icons/io5";
-import { FaShoppingBasket } from "react-icons/fa";
 import EditItemModal from "./EditItemModal";
 
 function AccordionItem(props) {

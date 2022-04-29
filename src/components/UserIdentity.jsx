@@ -25,7 +25,7 @@ function UserIdentity(props) {
   function HaveItem() {
     if (yourItems.length == 0) {
       console.log("Empty");
-      return <h5 style={{ color: "red" }}>You haven't listed any items yet</h5>;
+      return <h5 className="text-danger my-2 mx-4">You haven't listed any items yet</h5>;
     }
   }
 

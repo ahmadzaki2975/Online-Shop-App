@@ -119,7 +119,7 @@ function App() {
         //? functions
         updateItemHandler={updateItemHandler}
       />
-      <div className="credits d-flex justify-content-center py-1 bg-dark text-light"><h5>Ahmad Zaki Akmal</h5></div>
+      <div className="credits d-flex justify-content-center align-items-center p-2 bg-dark text-light"><h5>Ahmad Zaki Akmal</h5></div>
     </div>
   );
 }
