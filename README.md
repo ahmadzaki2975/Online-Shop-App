@@ -48,3 +48,5 @@ However, the login authentication system are not by any means safe. Others can u
 
 ### ⚠ Warning:
 Anything you post can be seen by others, so do not post any sensitive information in your items. This website isn't designed with security in mind.
+
+Any inappropriate contents will be deleted by admint.
