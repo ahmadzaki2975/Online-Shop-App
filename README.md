@@ -46,5 +46,5 @@ Most features are only available when you are logged in. When logged in, you can
 
 However, the login authentication system are not by any means safe. Others can use your username and manage items that doesn't belong to them.
 
-⚠ Warning:
+### ⚠ Warning:
 Anything you post can be seen by others, so do not post any sensitive information in your items. This website isn't designed with security in mind.
