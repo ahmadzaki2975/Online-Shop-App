@@ -72,8 +72,23 @@ a:hover {
   font-weight: bold;
 }
 
-.carousel .carousel-item {
+.carousel .carousel-item1 {
+  width: 100% !important;
+  height: 360px !important;
   transition: transform 2s ease, opacity 0.5s ease-out;
+  background: linear-gradient(-60deg, #6f15ed, rgb(200, 125, 240));
+}
+.carousel .carousel-item2 {
+  width: 100% !important;
+  height: 360px !important;
+  transition: transform 2s ease, opacity 0.5s ease-out;
+  background: linear-gradient(120deg, #45e683, #0c9f5d);
+}
+.carousel .carousel-item3 {
+  width: 100% !important;
+  height: 360px !important;
+  transition: transform 2s ease, opacity 0.5s ease-out;
+  background: linear-gradient(-60deg, #f88a1c, rgb(249, 219, 46));
 }
 .carousel img {
   height: 360px !important;

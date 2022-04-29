@@ -76,8 +76,20 @@ a {
 }
 
 .carousel {
-  .carousel-item {
+  @mixin carouselItemColor($bgColor) {
+    width: 100% !important;
+    height: 360px !important;
     transition: transform 2s ease, opacity 0.5s ease-out;
+    background: $bgColor;
+  }
+  .carousel-item1 {
+    @include carouselItemColor($colorGrad3);
+  }
+  .carousel-item2 {
+    @include carouselItemColor($colorGrad1);
+  }
+  .carousel-item3 {
+    @include carouselItemColor($colorGrad2);
   }
   img {
     height: 360px !important;
