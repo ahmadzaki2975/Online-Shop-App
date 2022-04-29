@@ -189,7 +189,6 @@ a:hover {
   row-gap: 20px;
   -moz-column-gap: 10px;
        column-gap: 10px;
-  overflow-y: scroll;
 }
 
 .card {
@@ -199,6 +198,7 @@ a:hover {
   box-shadow: 2px 3px rgba(0, 0, 0, 0.5);
   max-height: 360px;
   min-height: 360px;
+  max-width: 280px;
   aspect-ratio: 300/360;
 }
 .card p {

@@ -1,3 +1,5 @@
+//! THIS COMPONENT ISNT USED
+
 import { nanoid } from "nanoid";
 import { BsCash, BsStack, BsInfoSquareFill } from "react-icons/bs";
 import { IoLocationSharp, IoCashSharp } from "react-icons/io5";

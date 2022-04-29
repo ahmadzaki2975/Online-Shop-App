@@ -172,7 +172,7 @@ function UserIdentity(props) {
             </form>
           </div>
           <div className="right">
-            <h1>Placeholder</h1>
+            <h1></h1>
           </div>
         </div>
       );
