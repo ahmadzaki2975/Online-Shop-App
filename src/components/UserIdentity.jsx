@@ -125,10 +125,10 @@ function UserIdentity(props) {
       return (
         <div className="unlogged-content">
           <div className="left unlogged-left">
-            <h3>Log in and start shopping! </h3>
-            <h5 style={{ marginBottom: "0.75rem", marginTop: "0.5rem" }}>
+            <h2>Log in and start shopping! </h2>
+            <h4 style={{ marginBottom: "0.75rem", marginTop: "0.5rem" }}>
               Begin your shopping rampage!
-            </h5>
+            </h4>
             <form className="login-form">
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">

@@ -16,8 +16,9 @@ function Navbar(props) {
         <div className="navbar-brand d-flex" href="#">
           <a href="#">
             <FaShoppingCart className="nav-logo" />
-            Online Shopping App &ensp; |
+            Online Shopping App &ensp; 
           </a>
+          <span className="vertical-line">|</span>
           <div>
             <a href="#market" className="market-link">
               <div className="ms-4">Market</div>

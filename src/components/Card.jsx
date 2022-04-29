@@ -52,7 +52,7 @@ function Card(props) {
   }
 
   function StockColor() {
-    if(props.stock >= 0) {
+    if(props.stock > 0) {
       return(
         <p title={`Stock : ${props.stock}`} style={{ cursor: "pointer" }}>
             <BsStack /> Stock :{" "}
@@ -70,7 +70,7 @@ function Card(props) {
   }
 
   return (
-    <div className="card" style={{ width: "18rem" }}>
+    <div className="card">
       {/* <img
         // src={"src/images/"}
         className="card-img-top"
