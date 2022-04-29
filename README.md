@@ -2,6 +2,8 @@
 
 Project for CRUD-based website using React.js and Firebase
 
+Hosted via Vercel : https://online-shop-app-ahmadzaki2975.vercel.app
+
 ### 🎨 Design Concept
 
 <!-- [Figma](https://www.figma.com/file/Ru7BVma2ppLm6C4Ww9t30V/Post-Test-Zaki?node-id=2%3A64) -->
@@ -29,7 +31,8 @@ Project for CRUD-based website using React.js and Firebase
 <details>
   <summary>Final Design</summary>
   <pre align="center">
-  Placeholder
+    <img src="https://user-images.githubusercontent.com/87590846/165892443-81a4e887-15d4-45aa-a1f5-f540501cc823.png">
+    <img src="https://user-images.githubusercontent.com/87590846/165893225-bbc6ed58-02db-4445-a3ae-ae64be3a22ec.png">
   </pre>
 </details>
 
@@ -41,3 +44,7 @@ However, the login authentication system are not by any means safe. Others can u
 
 ⚠ Warning:
 Anything you post can be seen by others, so do not post any sensitive information in your items. This website isn't designed with security in mind.
+
+<!-- ![image](https://user-images.githubusercontent.com/87590846/165892443-81a4e887-15d4-45aa-a1f5-f540501cc823.png) -->
+![image](https://user-images.githubusercontent.com/87590846/165893225-bbc6ed58-02db-4445-a3ae-ae64be3a22ec.png)
+
